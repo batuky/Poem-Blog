@@ -1,7 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound
+from django.views.generic import ListView
 
+from .models import Post
 
 # Create your views here.
-def home(request):
-    return render(request, 'index.html')
+class HomeView(ListView):
+    model = Post
+    template_name = "blogApp/index.html" 
