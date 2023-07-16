@@ -10,7 +10,8 @@ venv.bak/
 # Test
 .pytest_cache/
 tests
+.coverage
+__pycache__
 
 # Database
-
 db.sqlite3
