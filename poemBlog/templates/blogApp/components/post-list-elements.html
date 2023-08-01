@@ -1,0 +1,20 @@
+{% for post in posts %}
+<div class="card mb-3 card_hover" style="width: 75%;">
+    <a href="" class="text-decoration-none">
+        <div class="row g-0">
+            <div class="col-md-4 ">         
+            <img src="https://picsum.photos/205/115" class="img-fluid rounded-start header_image" alt="Placeholder Image">
+            </div>
+            <div class="col-md-8 ">
+            <div class="card-body ">
+                <div class = "pb-2 fs-6 text-body infscroll-author">{{post.author}}</div>
+                <h5 class="card-title fs-4 text-body fw-bold infscroll-title">{{post.title|truncatechars:20}}</h5> <span></span>
+                <p class="card-text fs-6 text-muted">{{post.content|truncatechars:150}}</p>
+                <p class="card-text"><small class="text-body-secondary infscroll-date">{{post.updated|date:"d M"}}</small></p>
+            </div>
+            </div>
+        </div>   
+    </a>
+</div>
+
+{% endfor %}

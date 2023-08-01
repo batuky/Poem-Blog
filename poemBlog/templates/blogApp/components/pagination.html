@@ -1,0 +1,29 @@
+<!-- Pagination links -->
+<div class="pagination">
+    <div class="row">
+        <div class="col-md-3 col-sm-2 mb-2">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline-secondary mb-2">Önceki</a>
+                    {% endif %}
+                </span>
+        </div>
+        <div class="col-md-6 col-sm-4 mb-2">
+            <span class="current">
+                <form method="get" action="" style="display: inline-block;">
+                    <input type="number" name="page" min="1" max="{{ page_obj.paginator.num_pages }}" value="{{ page_obj.number }}" class="form-control" style="display: inline-block; width: 70px;">
+                    /
+                    <button type="submit" class="btn btn-outline-secondary disabled">{{ page_obj.paginator.num_pages }}</button>
+                    <button type="submit" class="btn btn-outline-secondary">Git</button>
+                </form>
+            </span>         
+        </div>
+        <div class="col-md-3 col-sm-2 mb-2">
+            <span class="step-links">
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}" class="btn btn-outline-secondary mb-2">Sonraki</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+</div>
