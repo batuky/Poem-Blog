@@ -15,8 +15,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from . import views
+from .views import HomeView
+
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path("",views.HomeView.as_view(), name="homepage"),
+    path("",HomeView.as_view(), name="homepage"),
+
 ]
+
+#The code creating URLs for uploaded images
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
