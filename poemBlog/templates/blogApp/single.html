@@ -1,0 +1,36 @@
+{% extends "../base/3-col-template.html" %}
+
+{% block content-left %}
+    {% include "base/_sidebar.html" %}
+{% endblock %}
+
+{% block content-mid %}
+
+<style>
+    .blogger h1 {
+        letter-spacing: -0.6px;
+    }
+
+    .post h1 {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .post p {
+        font-family: Merriweather;
+        font-size: 1.0625rem;
+        line-height: 32px;
+        letter-spacing: 0.2px;
+    }
+</style>
+
+<div class="blogger center mx-auto" style="max-width: 683px;">
+    <div class="text-muted">{{post.author}}</div>
+    <div class="text-muted pb-5">{{post.updated|date:"d M"}}</div>
+    <h1 class="fw-bold pb-2">{{post.title}}</h1>
+    <div class="post fw-bold">{{post.content}}</div>
+
+</div>
+{% endblock %}
+
+{% block content-right %}b{% endblock %}

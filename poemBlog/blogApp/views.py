@@ -1,6 +1,6 @@
 from django.views.generic import ListView
 from django.core.paginator import Paginator
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 
 from .models import Post
@@ -30,3 +30,8 @@ class HomeView(ListView):
         page_range = paginator.page_range[start_index:end_index]
         context['page_range'] = page_range
         return context
+
+#render a single post.    
+def post_single(request, post):
+     post = get_object_or_404(Post, slug=post, status="published")
+     return render(request, "blogApp/single.html", {"post":post})

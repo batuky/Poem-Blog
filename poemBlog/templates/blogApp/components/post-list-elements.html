@@ -1,6 +1,6 @@
 {% for post in posts %}
 <div class="card mb-3 card_hover" style="width: 75%;">
-    <a href="" class="text-decoration-none">
+    <a href="{{ post.get_absolute_url }}" class="text-decoration-none">
         <div class="row g-0">
             <div class="col-md-4 ">         
             <img src="https://picsum.photos/205/115" class="img-fluid rounded-start header_image" alt="Placeholder Image">

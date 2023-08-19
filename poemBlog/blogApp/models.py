@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -20,8 +21,14 @@ class Post(models.Model):
     status = models.CharField(max_length=10, choices=options, default="draft")
     upload_image = models.ImageField(upload_to ='uploads/', null=True, blank=True)
 
+
+    def get_absolute_url(self):
+        return reverse("post_single", args=[self.slug])
+
+
     class Meta():
         ordering = ("-created_at",)
+
 
     def __str__(self):
         return self.title
